@@ -1,7 +1,10 @@
 <?php
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
 $chatToken = getenv('chatToken');
 $chatGroupId = getenv('chatGroupId');
+
 $message = "This is test.\nMy name is test.";
 
 $headers = [
@@ -21,5 +24,6 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 curl_close($ch);
 
+}
 
 ?>
