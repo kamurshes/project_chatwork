@@ -23,7 +23,7 @@ error_log($bar);
 $chatToken = getenv('chatToken');
 $chatGroupId = getenv('chatGroupId');
 
-$message = "シナリオ：". $_POST['data']['User']['name']." , ".$_POST['data']['User']['mail']."の登録がありました。";
+$message = "シナリオ：". $_POST['data']['User']['scenario']." に ".$_POST['data']['User']['mail']."　が登録をしました。";
 
 $headers = [
     'X-ChatWorkToken: '.$chatToken
