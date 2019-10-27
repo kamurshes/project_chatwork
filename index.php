@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 if(isset($_POST)) {
     ob_start(); // バッファリングON
-    var_dump($var);
+    var_dump($_POST);
     $bar = ob_get_contents(); // バッファの内容を変数に格納
     ob_end_clean(); // バッファを消去してバッファリングOFF
 }
