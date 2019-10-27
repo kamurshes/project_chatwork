@@ -2,6 +2,11 @@
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+if(isset($_POST)) {
+	error_log($_POST);
+}
+
+
 $chatToken = getenv('chatToken');
 $chatGroupId = getenv('chatGroupId');
 
