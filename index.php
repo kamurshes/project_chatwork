@@ -13,9 +13,12 @@ function get_str_var_dump($var){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 if(isset($_POST)) {
-	get_str_var_dump($_POST);
+    ob_start(); // バッファリングON
+    var_dump($var);
+    $bar = ob_get_contents(); // バッファの内容を変数に格納
+    ob_end_clean(); // バッファを消去してバッファリングOFF
 }
-
+error_log($bar);
 
 $chatToken = getenv('chatToken');
 $chatGroupId = getenv('chatGroupId');
