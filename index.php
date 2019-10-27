@@ -20,7 +20,7 @@ if(isset($_POST)) {
 $chatToken = getenv('chatToken');
 $chatGroupId = getenv('chatGroupId');
 
-$message = "This is test.\nMy name is test.";
+$message = $_POST['data[User][mail]']."の登録がありました。";
 
 $headers = [
     'X-ChatWorkToken: '.$chatToken
