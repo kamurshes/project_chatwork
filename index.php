@@ -1,7 +1,7 @@
 <?php
 
 // var_dumpを文字列に変換する関数を作成
-public static function get_str_var_dump($var){
+function get_str_var_dump($var){
     ob_start(); // バッファリングON
     var_dump($var);
     $bar = ob_get_contents(); // バッファの内容を変数に格納
@@ -13,7 +13,7 @@ public static function get_str_var_dump($var){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 if(isset($_POST)) {
-	self::get_str_var_dump($_POST);
+	get_str_var_dump($_POST);
 }
 
 
