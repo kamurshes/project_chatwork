@@ -46,7 +46,7 @@ curl_close($ch);
 // 名前
 $name=$_POST['data']['User']['name1'];
 // メールアドレス
-$mail=$_POST['data']['User']['mail'];
+$email=$_POST['data']['User']['mail'];
 // 電話番号
 $tel=$_POST['data']['User']['tel'];
 
@@ -65,7 +65,7 @@ $tel=$_POST['data']['User']['tel'];
 	error_log("STEP4:SQLを実行する");
 	$RESULT=$INSERT->execute();
 	error_log("STEP5:SQLの実行結果");
-	error_log($UserID."をデータベースに追加しました。");
+	error_log($name."をデータベースに追加しました。");
 	error_log("=================================");
 
 }
