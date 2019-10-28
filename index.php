@@ -35,7 +35,7 @@ $tel=$_POST['data']['User']['tel'];
 
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
-	"メールアドレス：".$mail."\n".
+	"メールアドレス：".$email."\n".
 	"電話番号：".$tel;
 
 $headers = [
