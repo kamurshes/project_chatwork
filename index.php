@@ -23,7 +23,20 @@ error_log($bar);
 $chatToken = getenv('chatToken');
 $chatGroupId = getenv('chatGroupId');
 
-$message = "シナリオ：". $_POST['data']['User']['scenario']." に ".$_POST['data']['User']['mail']."　が登録をしました。";
+
+// POSTデータを取得する
+
+// 名前
+$name=$_POST['data']['User']['name1'];
+// メールアドレス
+$email=$_POST['data']['User']['mail'];
+// 電話番号
+$tel=$_POST['data']['User']['tel'];
+
+$message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
+	"氏名：".$name."\n".
+	"メールアドレス：".$mail."\n".
+	"電話番号：".$tel;
 
 $headers = [
     'X-ChatWorkToken: '.$chatToken
@@ -43,12 +56,6 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 // ここからデータベース接続をし、テーブルにデータを格納する
-// 名前
-$name=$_POST['data']['User']['name1'];
-// メールアドレス
-$email=$_POST['data']['User']['mail'];
-// 電話番号
-$tel=$_POST['data']['User']['tel'];
 
 	//データベースに格納する
 	error_log("=================================");
