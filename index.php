@@ -35,7 +35,7 @@ $tel=$_POST['data']['User']['tel'];
 // シナリオ
 $scenario=$_POST['data']['User']['scenario'];
 // LINE ID 
-$lineid=$_POST['data']['User']['lineid'];
+$lineid=$_POST['data']['User']['free1'];
 
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
