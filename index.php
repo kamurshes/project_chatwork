@@ -75,7 +75,7 @@ curl_close($ch);
 	$INSERT->bindParam(':tel',$tel,PDO::PARAM_STR);
 	error_log("STEP3-4:シナリオを設定する：".$scenario);
 	$INSERT->bindParam(':scenario',$scenario,PDO::PARAM_STR);
-	error_log("STEP3-5:LINE IDを設定する：".$scenario);
+	error_log("STEP3-5:LINE IDを設定する：".$lineid);
 	$INSERT->bindParam(':lineid',$lineid,PDO::PARAM_STR);
 	error_log("STEP4:SQLを実行する");
 	$RESULT=$INSERT->execute();
