@@ -34,6 +34,8 @@ $email=$_POST['data']['User']['mail'];
 $tel=$_POST['data']['User']['tel'];
 // シナリオ
 $scenario=$_POST['data']['User']['scenario'];
+// LINE ID 
+$lineid=$_POST['data']['User']['lineid'];
 
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
@@ -64,7 +66,7 @@ curl_close($ch);
 	error_log("STEP1:データベースに接続をする");
 	$pdo = new PDO('mysql:host='.getenv('SERVER').';dbname='.getenv('DATABASE').';charset=utf8',getenv('USERNAME'),getenv('PASSWORD'),array(PDO::ATTR_EMULATE_PREPARES => true));
 	error_log("STEP2:SQL構文を作成する");
-	$INSERT=$pdo ->prepare('INSERT INTO users(name, email, tel, scenario) VALUES (:name,:email,:tel,:scenario)');
+	$INSERT=$pdo ->prepare('INSERT INTO users(name, email, tel, scenario, lineid) VALUES (:name,:email,:tel,:scenario,:lineid)');
 	error_log("STEP3-1:名前を設定する：".$name);
 	$INSERT->bindParam(':name',$name,PDO::PARAM_STR);
 	error_log("STEP3-2:メールアドレスを設定する：".$email);
@@ -73,6 +75,8 @@ curl_close($ch);
 	$INSERT->bindParam(':tel',$tel,PDO::PARAM_STR);
 	error_log("STEP3-4:シナリオを設定する：".$scenario);
 	$INSERT->bindParam(':scenario',$scenario,PDO::PARAM_STR);
+	error_log("STEP3-5:LINE IDを設定する：".$scenario);
+	$INSERT->bindParam(':lineid',$lineid,PDO::PARAM_STR);
 	error_log("STEP4:SQLを実行する");
 	$RESULT=$INSERT->execute();
 	error_log("STEP5:SQLの実行結果");
