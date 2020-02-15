@@ -40,7 +40,7 @@ $free4=$_POST['data']['User']['free4'];
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
 	"メールアドレス：".$email."\n".
-	"電話番号：".$tel;
+	"電話番号：".$tel."\n".
 	"セミナー申し込み日程：".$free4;
 
 $headers = [
