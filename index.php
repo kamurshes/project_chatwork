@@ -34,13 +34,14 @@ $email=$_POST['data']['User']['mail'];
 $tel=$_POST['data']['User']['tel'];
 // シナリオ
 $scenario=$_POST['data']['User']['scenario'];
-// LINE ID 
-$lineid=$_POST['data']['User']['free1'];
+// セミナー申し込み日程
+$free4=$_POST['data']['User']['free4'];
 
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
 	"メールアドレス：".$email."\n".
 	"電話番号：".$tel;
+	"セミナー申し込み日程：".$free4;
 
 $headers = [
     'X-ChatWorkToken: '.$chatToken
@@ -66,7 +67,7 @@ curl_close($ch);
 	error_log("STEP1:データベースに接続をする");
 	$pdo = new PDO('mysql:host='.getenv('SERVER').';dbname='.getenv('DATABASE').';charset=utf8',getenv('USERNAME'),getenv('PASSWORD'),array(PDO::ATTR_EMULATE_PREPARES => true));
 	error_log("STEP2:SQL構文を作成する");
-	$INSERT=$pdo ->prepare('INSERT INTO users(name, email, tel, scenario, lineid) VALUES (:name,:email,:tel,:scenario,:lineid)');
+	$INSERT=$pdo ->prepare('INSERT INTO users(name, email, tel, scenario, lineid) VALUES (:name,:email,:tel,:scenario,:free1)');
 	error_log("STEP3-1:名前を設定する：".$name);
 	$INSERT->bindParam(':name',$name,PDO::PARAM_STR);
 	error_log("STEP3-2:メールアドレスを設定する：".$email);
@@ -75,8 +76,8 @@ curl_close($ch);
 	$INSERT->bindParam(':tel',$tel,PDO::PARAM_STR);
 	error_log("STEP3-4:シナリオを設定する：".$scenario);
 	$INSERT->bindParam(':scenario',$scenario,PDO::PARAM_STR);
-	error_log("STEP3-5:LINE IDを設定する：".$lineid);
-	$INSERT->bindParam(':lineid',$lineid,PDO::PARAM_STR);
+	error_log("STEP3-5:セミナー申し込み日程：".$free4);
+	$INSERT->bindParam(':free1',$free4,PDO::PARAM_STR);
 	error_log("STEP4:SQLを実行する");
 	$RESULT=$INSERT->execute();
 	error_log("STEP5:SQLの実行結果");
