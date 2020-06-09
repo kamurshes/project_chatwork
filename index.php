@@ -97,7 +97,7 @@ curl_close($ch);
 	error_log("=====TwillioでSMSを送信する=====");
 	$client->messages->create(
 		// Where to send a text message (your cell phone?)
-		 '+817055025296',
+		 '+81'.$tel,
 		 array(
 			 'from' => $twilio_number,
 			 'body' => getenv('SMS')
