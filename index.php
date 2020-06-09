@@ -1,4 +1,14 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
+use Twilio\Rest\Client;
+
+// Twillioの設定
+$account_sid = getenv('account_sid');
+$auth_token = getenv('auth_token');
+$twilio_number = getenv('twilio_number');
+$client = new Client($account_sid, $auth_token);
+// Twillioの設定
+
 
 // var_dumpを文字列に変換する関数を作成
 function get_str_var_dump($var){
@@ -84,6 +94,15 @@ curl_close($ch);
 	error_log($name."をデータベースに追加しました。");
 	error_log("=================================");
 
+	error_log("=====TwillioでSMSを送信する=====");
+	$client->messages->create(
+		// Where to send a text message (your cell phone?)
+		 '+817055025296',
+		 array(
+			 'from' => $twilio_number,
+			 'body' => getenv('SMS')
+		 )
+	 );
 }
 
 ?>
