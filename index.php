@@ -94,15 +94,15 @@ curl_close($ch);
 	error_log($name."をデータベースに追加しました。");
 	error_log("=================================");
 
-	error_log("=====TwillioでSMSを送信する=====");
-	$client->messages->create(
+	//error_log("=====TwillioでSMSを送信する=====");
+	//$client->messages->create(
 		// Where to send a text message (your cell phone?)
-		 '+81'.$tel,
-		 array(
-			 'from' => $twilio_number,
-			 'body' => getenv('SMS')
-		 )
-	 );
+	//	 '+81'.$tel,
+	//	 array(
+	//		 'from' => $twilio_number,
+	//		 'body' => getenv('SMS')
+	//	 )
+	//);
 }
 
 ?>
