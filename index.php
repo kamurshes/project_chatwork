@@ -34,6 +34,10 @@ $email=$_POST['data']['User']['mail'];
 $tel=$_POST['data']['User']['tel'];
 // シナリオ
 $scenario=$_POST['data']['User']['scenario'];
+// infotopかnoteかを判定する
+$infoornote=$_POST['data']['User']['infoornote'];
+// 登録のあったinfotop or note のID
+$id=$_POST['data']['User']['id'];
 
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
@@ -64,7 +68,8 @@ curl_close($ch);
 	error_log("STEP1:データベースに接続をする");
 	$pdo = new PDO('mysql:host='.getenv('SERVER').';dbname='.getenv('DATABASE').';charset=utf8',getenv('USERNAME'),getenv('PASSWORD'),array(PDO::ATTR_EMULATE_PREPARES => true));
 	error_log("STEP2:SQL構文を作成する");
-	$INSERT=$pdo ->prepare('INSERT INTO users(name, email, tel, scenario) VALUES (:name,:email,:tel,:scenario)');
+	if($infoornote==="infotop"){$INSERT=$pdo ->prepare('INSERT INTO users(name, email, tel, scenario,infotop) VALUES (:name,:email,:tel,:scenario,:id)');}
+	if($infoornote==="note"){$INSERT=$pdo ->prepare('INSERT INTO users(name, email, tel, scenario,note) VALUES (:name,:email,:tel,:scenario,:id)');}
 	error_log("STEP3-1:名前を設定する：".$name);
 	$INSERT->bindParam(':name',$name,PDO::PARAM_STR);
 	error_log("STEP3-2:メールアドレスを設定する：".$email);
