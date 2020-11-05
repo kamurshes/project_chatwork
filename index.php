@@ -42,7 +42,8 @@ $id=$_POST['data']['User']['free1'];
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
 	"メールアドレス：".$email."\n".
-	"電話番号：".$tel;
+	"電話番号：".$tel."\n".
+	"infotop or noteのID：".$id."\n".
 
 $headers = [
     'X-ChatWorkToken: '.$chatToken
