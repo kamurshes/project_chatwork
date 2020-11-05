@@ -78,6 +78,8 @@ curl_close($ch);
 	$INSERT->bindParam(':tel',$tel,PDO::PARAM_STR);
 	error_log("STEP3-4:シナリオを設定する：".$scenario);
 	$INSERT->bindParam(':scenario',$scenario,PDO::PARAM_STR);
+	error_log("STEP3-5:ID(infoto or note)を設定する：".$id);
+	$INSERT->bindParam(':id',$id,PDO::PARAM_STR);
 	error_log("STEP4:SQLを実行する");
 	$RESULT=$INSERT->execute();
 	error_log("STEP5:SQLの実行結果");
