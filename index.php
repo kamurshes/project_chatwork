@@ -37,7 +37,7 @@ $scenario=$_POST['data']['User']['scenario'];
 // infotopかnoteかを判定する
 $infoornote=$_POST['data']['User']['infoornote'];
 // 登録のあったinfotop or note のID
-$id=$_POST['data']['User']['id'];
+$id=$_POST['data']['User']['free1'];
 
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
