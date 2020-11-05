@@ -43,7 +43,7 @@ $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
 	"メールアドレス：".$email."\n".
 	"電話番号：".$tel."\n".
-	"infotop or noteのID：".$id;
+	"インフォトップ or noteのID：".$id;
 
 $headers = [
     'X-ChatWorkToken: '.$chatToken
