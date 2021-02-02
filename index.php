@@ -51,7 +51,8 @@ $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
 	"メールアドレス：".$email."\n".
 	"電話番号：".$tel."\n".
-	"セミナー申し込み日程：".$free4;
+	"子どもたちの才能を発掘するコーチ起業に興味がある：".$free4."\n".
+	"エキスパートから日程調整の電話があることを理解している：".$free5;
 
 $headers = [
     'X-ChatWorkToken: '.$chatToken
