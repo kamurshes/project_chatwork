@@ -52,9 +52,7 @@ $free5=$_POST['data']['User']['free5'];
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
 	"メールアドレス：".$email."\n".
-	"電話番号：".$tel."\n".
-	"子どもたちの才能を発掘するコーチ起業に興味がある：".$free4."\n".
-	"エキスパートから日程調整の電話があることを理解している：".$free5;
+	"電話番号：".$tel."\n";
 
 $headers = [
     'X-ChatWorkToken: '.$chatToken
