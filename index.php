@@ -84,7 +84,7 @@ curl_close($ch);
 	error_log("STEP1:データベースに接続をする");
 	$pdo = new PDO('mysql:host='.getenv('SERVER').';dbname='.getenv('DATABASE').';charset=utf8',getenv('USERNAME'),getenv('PASSWORD'),array(PDO::ATTR_EMULATE_PREPARES => true));
 	error_log("STEP2:SQL構文を作成する");
-	$INSERT=$pdo ->prepare('INSERT INTO users(name, email, tel, scenario, free1) VALUES (:name,:email,:tel,:scenario,:kana,:zipcode,:zip)');
+	$INSERT=$pdo ->prepare('INSERT INTO users(name, email, tel, scenario, kana,zipcode,zip) VALUES (:name,:email,:tel,:scenario,:kana,:zipcode,:zip)');
 	error_log("STEP3-1:名前を設定する：".$name);
 	$INSERT->bindParam(':name',$name,PDO::PARAM_STR);
 	error_log("STEP3-1-1:フリガナを設定する：".$name);
