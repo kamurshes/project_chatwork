@@ -38,20 +38,27 @@ $chatGroupId = getenv('chatGroupId');
 
 // 名前
 $name=$_POST['data']['User']['name1'];
+// フリガナ
+$kana=$_POST['data']['User']['kana'];
 // メールアドレス
 $email=$_POST['data']['User']['mail'];
 // 電話番号
 $tel=$_POST['data']['User']['tel'];
 // シナリオ
 $scenario=$_POST['data']['User']['scenario'];
-// セミナー申し込み日程
-$free4=$_POST['data']['User']['free4'];
+// 郵便番号
+$zipcode=$_POST['data']['User']['zipcode'];
+// 所在地
+$zip=$_POST['data']['User']['zip'];
 
+	
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
+	"フリガナ：".$kana."\n".
 	"メールアドレス：".$email."\n".
 	"電話番号：".$tel."\n".
-	"セミナー申し込み日程：".$free4;
+	"郵便番号：".$zipcode."\n".
+	"住所：".$zip;
 
 $headers = [
     'X-ChatWorkToken: '.$chatToken
