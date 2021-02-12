@@ -50,7 +50,11 @@ $scenario=$_POST['data']['User']['scenario'];
 $zipcode=$_POST['data']['User']['zipcode'];
 // 所在地
 $zip=$_POST['data']['User']['zip'];
-
+// 支払い方法
+//data[User][free3]=%free3%
+$free3=$_POST['data']['User']['free3'];	
+// 「その他」の場合の支払い方法
+$free9=$_POST['data']['User']['free9'];
 	
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"氏名：".$name."\n".
@@ -58,7 +62,9 @@ $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"メールアドレス：".$email."\n".
 	"電話番号：".$tel."\n".
 	"郵便番号：".$zipcode."\n".
-	"住所：".$zip;
+	"住所：".$zip."\n".
+	"支払い方法：".$free3."\n".
+	"「その他」の場合の支払い方法：".$free9;
 
 $headers = [
     'X-ChatWorkToken: '.$chatToken
@@ -84,7 +90,7 @@ curl_close($ch);
 	error_log("STEP1:データベースに接続をする");
 	$pdo = new PDO('mysql:host='.getenv('SERVER').';dbname='.getenv('DATABASE').';charset=utf8',getenv('USERNAME'),getenv('PASSWORD'),array(PDO::ATTR_EMULATE_PREPARES => true));
 	error_log("STEP2:SQL構文を作成する");
-	$INSERT=$pdo ->prepare('INSERT INTO users(name, email, tel, scenario, kana,zipcode,zip) VALUES (:name,:email,:tel,:scenario,:kana,:zipcode,:zip)');
+	$INSERT=$pdo ->prepare('INSERT INTO users(name, email, tel, scenario, kana,zipcode,zip,free3,free9) VALUES (:name,:email,:tel,:scenario,:kana,:zipcode,:zip,:free3,:free9)');
 	error_log("STEP3-1:名前を設定する：".$name);
 	$INSERT->bindParam(':name',$name,PDO::PARAM_STR);
 	error_log("STEP3-1-1:フリガナを設定する：".$name);
@@ -99,6 +105,10 @@ curl_close($ch);
 	$INSERT->bindParam(':zipcode',$zipcode,PDO::PARAM_STR);
 	error_log("STEP3-6:所在地：".$zip);
 	$INSERT->bindParam(':zip',$zip,PDO::PARAM_STR);
+	error_log("STEP3-7:支払い方法：".$free3);
+	$INSERT->bindParam(':free3',$free3,PDO::PARAM_STR);
+	error_log("STEP3-8:「その他」の場合の支払い方法：".$free9);
+	$INSERT->bindParam(':free9',$free9,PDO::PARAM_STR);
 	error_log("STEP4:SQLを実行する");
 	$RESULT=$INSERT->execute();
 	error_log("STEP5:SQLの実行結果");
