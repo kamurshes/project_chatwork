@@ -39,7 +39,7 @@ $chatGroupId = getenv('chatGroupId');
 // 名前
 $name=$_POST['data']['User']['name1'];
 // フリガナ
-$kana=$_POST['data']['User']['kana'];
+$kana=$_POST['data']['User']['free1'];
 // メールアドレス
 $email=$_POST['data']['User']['mail'];
 // 電話番号
