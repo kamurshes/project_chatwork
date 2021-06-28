@@ -40,7 +40,7 @@ $tel=$_POST['data']['User']['tel'];
 // シナリオ
 $scenario=$_POST['data']['User']['scenario'];
 // セミナー申し込み日程
-$free1=$_POST['data']['User']['free1'];
+$free1=$_POST['data']['User']['free1'][];
 
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
 	"オンライン説明会への参加日：".$free1."\n".
