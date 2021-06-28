@@ -1,11 +1,11 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
-use Twilio\Rest\Client;
+
 
 // Twillioの設定
 $account_sid = getenv('account_sid');
 $auth_token = getenv('auth_token');
-$twilio_number = getenv('twilio_number');
+
 $client = new Client($account_sid, $auth_token);
 // Twillioの設定
 
