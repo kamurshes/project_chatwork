@@ -81,7 +81,7 @@ curl_close($ch);
 	$INSERT->bindParam(':tel',$tel,PDO::PARAM_STR);
 	error_log("STEP3-4:シナリオを設定する：".$scenario);
 	$INSERT->bindParam(':scenario',$scenario,PDO::PARAM_STR);
-	error_log("STEP3-5:セミナー申し込み日程：".$free4);
+	error_log("STEP3-5:セミナー申し込み日程：".$free1);
 	$INSERT->bindParam(':free1',$free4,PDO::PARAM_STR);
 	error_log("STEP4:SQLを実行する");
 	$RESULT=$INSERT->execute();
