@@ -48,13 +48,9 @@ $scenario=$_POST['data']['User']['scenario'];
 $free4=$_POST['data']['User']['free4'];
 
 $message = "シナリオ：". $_POST['data']['User']['scenario']."\n".
-	"「癒しびと」の興味：".$_POST['data']['free3'][]."\n".
-	"「The Smile」への興味：".$_POST['data']['free4'][]."\n".
-	"オンライン説明会への参加日：".$_POST['data']['free1'][]."\n".
 	"氏名：".$name."\n".
 	"メールアドレス：".$email."\n".
-	"電話番号：".$tel."\n".
-	"セミナー申し込み日程：".$free4;
+	"電話番号：".$tel."\n";
 
 $headers = [
     'X-ChatWorkToken: '.$chatToken
