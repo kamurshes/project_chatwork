@@ -2,12 +2,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 
-// Twillioの設定
-$account_sid = getenv('account_sid');
-$auth_token = getenv('auth_token');
 
-$client = new Client($account_sid, $auth_token);
-// Twillioの設定
 
 
 // var_dumpを文字列に変換する関数を作成
